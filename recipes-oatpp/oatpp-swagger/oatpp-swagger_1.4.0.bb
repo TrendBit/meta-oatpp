@@ -23,13 +23,40 @@
 #############################################################################
 
 DESCRIPTION = "Oat++ Swagger (OAS 3.0)" 
-inherit oatpp-module
+SECTION = "oatpp" 
+LICENSE = "Apache-2.0" 
+PR = "r0" 
 
-PACKAGES_prepend = "${PN}-ui "
+DEPENDS = "oatpp"
+
+SRC_URI = "git://github.com/oatpp/oatpp-swagger;branch=master;protocol=https"
+SRCREV = "8cb460b546e84b06939a12897c85a6d863c1c53e"
+
+
+LIC_FILES_CHKSUM = "file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327"
+
+ALLOW_EMPTY:${PN} = "1"
+
+S = "${WORKDIR}/git"
+
+inherit pkgconfig cmake
+
+PACKAGECONFIG ??= ""
+
+PACKAGECONFIG[shared] = "-DBUILD_SHARED_LIBS=ON,-DBUILD_SHARED_LIBS=OFF"
+PACKAGECONFIG[tests] = "-DOATPP_BUILD_TESTS=ON,-DOATPP_BUILD_TESTS=OFF"
+
+FILES:${PN}-staticdev = " \
+    ${libdir}/oatpp-${PV}/liboatpp-swagger.a \ 
+"
+
+
+
+PACKAGES:prepend = "${PN}-ui "
 
 INCDIR = "${includedir}/oatpp-${PV}/${PN}/${PN}"
 CMDIR = "${libdir}/cmake/${PN}-${PV}"
-FILES_${PN} = " \
+FILES:${PN} = " \
     ${INCDIR}/AsyncController.hpp \
     ${INCDIR}/Controller.hpp \
     ${INCDIR}/Generator.hpp \
@@ -43,7 +70,7 @@ FILES_${PN} = " \
     ${CMDIR}/oatpp-swaggerTargets-noconfig.cmake \
 "
 RESDIR = "${includedir}/oatpp-${PV}/bin/oatpp-swagger/res"
-FILES_${PN}-ui = " \
+FILES:${PN}-ui = " \
     ${RESDIR}/swagger-ui.js.map \
     ${RESDIR}/swagger-ui-standalone-preset.js \
     ${RESDIR}/swagger-ui.css \
@@ -57,7 +84,9 @@ FILES_${PN}-ui = " \
     ${RESDIR}/swagger-ui-es-bundle.js.map \
     ${RESDIR}/oauth2-redirect.html \
     ${RESDIR}/swagger-ui-standalone-preset.js.map \
+    ${RESDIR}/index.css \
     ${RESDIR}/index.html \
+    ${RESDIR}/swagger-initializer.js \
     ${RESDIR}/swagger-ui-bundle.js.map \
     ${RESDIR}/swagger-ui.css.map \
 "

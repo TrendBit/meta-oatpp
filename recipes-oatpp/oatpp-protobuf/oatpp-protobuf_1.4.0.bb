@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ OpenSSL" 
+DESCRIPTION = "Oat++ Protobuf" 
 inherit oatpp-module
 
-DEPENDS_append = " openssl"
+DEPENDS:append = " protobuf"

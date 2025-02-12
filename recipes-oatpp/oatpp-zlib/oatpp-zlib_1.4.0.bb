@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ Protobuf" 
+DESCRIPTION = "Oat++ zlib" 
 inherit oatpp-module
 
-DEPENDS_append = " protobuf"
+DEPENDS:append = " zlib"

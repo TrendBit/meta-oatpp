@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ libressl" 
+DESCRIPTION = "Oat++ PostgreSQL" 
 inherit oatpp-module
 
-DEPENDS_append = " libressl"
+DEPENDS:append = " postgresql"

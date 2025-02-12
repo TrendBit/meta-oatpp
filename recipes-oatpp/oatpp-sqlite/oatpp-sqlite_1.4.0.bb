@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ MongoDB" 
+DESCRIPTION = "Oat++ SQLite" 
 inherit oatpp-module
 
-DEPENDS_append = " mongodb"
+DEPENDS:append = " sqlite3"

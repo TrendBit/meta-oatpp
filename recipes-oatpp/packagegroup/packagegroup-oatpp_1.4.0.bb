@@ -22,7 +22,19 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ OpenSSL" 
-inherit oatpp-module
+SUMMARY = "All Oat++ packages"
 
-DEPENDS_append = " openssl"
+inherit packagegroup
+
+RDEPENDS:${PN} += "websocket"
+RDEPENDS:${PN} += "postgresql"
+RDEPENDS:${PN} += "ssdp"
+RDEPENDS:${PN} += "openssl"
+RDEPENDS:${PN} += "libressl"
+RDEPENDS:${PN} += "zlib"
+RDEPENDS:${PN} += "sqlite"
+RDEPENDS:${PN} += "mongo"
+RDEPENDS:${PN} += "mbedtls"
+RDEPENDS:${PN} += "curl"
+RDEPENDS:${PN} += "protobuf"
+RDEPENDS:${PN} += "swagger"

@@ -22,7 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ MbedTLS" 
+DESCRIPTION = "Oat++ Curl" 
 inherit oatpp-module
 
-DEPENDS_append = " mbedtls"
+DEPENDS:append = " curl"

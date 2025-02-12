@@ -22,6 +22,7 @@
 #
 #############################################################################
 
-DESCRIPTION = "Oat++ SSDP" 
+DESCRIPTION = "Oat++ libressl" 
 inherit oatpp-module
 
+DEPENDS:append = " libressl"
